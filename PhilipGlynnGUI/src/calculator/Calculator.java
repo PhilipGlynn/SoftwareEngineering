@@ -146,6 +146,9 @@ public class Calculator {
 				stringbuilder.delete(0, stringbuilder.length());
 				display.setText(stringbuilder.toString());
 				display.setText("");
+				answer = 0;
+				state = 0;
+				answerState = false;
 			}
 		});    
         nine.addActionListener(new ActionListener(){		
@@ -153,14 +156,20 @@ public class Calculator {
 				
 				stringbuilder.append("9");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		
 		eight.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
 				
-				stringbuilder.append("9");
+				stringbuilder.append("8");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		seven.addActionListener(new ActionListener(){		
@@ -168,6 +177,9 @@ public class Calculator {
 				
 				stringbuilder.append("7");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		six.addActionListener(new ActionListener(){		
@@ -175,6 +187,9 @@ public class Calculator {
 				
 				stringbuilder.append("6");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		five.addActionListener(new ActionListener(){		
@@ -182,12 +197,18 @@ public class Calculator {
 				
 				stringbuilder.append("5");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		four.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {	
 				stringbuilder.append("4");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		three.addActionListener(new ActionListener(){		
@@ -195,6 +216,9 @@ public class Calculator {
 				
 				stringbuilder.append("3");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		two.addActionListener(new ActionListener(){		
@@ -202,6 +226,9 @@ public class Calculator {
 				
 				stringbuilder.append("2");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		one.addActionListener(new ActionListener(){		
@@ -209,6 +236,9 @@ public class Calculator {
 				
 				stringbuilder.append("1");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		zero.addActionListener(new ActionListener(){		
@@ -216,6 +246,9 @@ public class Calculator {
 				
 				stringbuilder.append("0");
 				display.setText(stringbuilder.toString());
+				if (answerState == true){
+					answerState = false;
+				}
 			}
 		});
 		divide.addActionListener(new ActionListener(){		
