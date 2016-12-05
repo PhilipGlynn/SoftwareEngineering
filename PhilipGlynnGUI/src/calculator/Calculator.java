@@ -29,6 +29,7 @@ public class Calculator {
 	  private JButton minus;
 	  private JButton equals;
 	  private JButton clear;
+	  private boolean answerState = false;
 	  private static int state = 0;
 	  private static Integer sum = 0;
 	  int answer = 0;
@@ -210,6 +211,13 @@ public class Calculator {
 				display.setText(stringbuilder.toString());
 			}
 		});
+		zero.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				
+				stringbuilder.append("0");
+				display.setText(stringbuilder.toString());
+			}
+		});
 		divide.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
 				
@@ -218,6 +226,11 @@ public class Calculator {
 					stringbuilder.delete(0, stringbuilder.length());
 					stringbuilder.append(answer + " ");
 					stringbuilder.append("÷");
+				}
+				else if( answerState == true){
+					stringbuilder.delete(0,stringbuilder.length());
+					stringbuilder.append(answer + " ÷ ");
+					answer = 0;
 				}
 				else{
 					state = 1;
@@ -235,6 +248,11 @@ public class Calculator {
 					stringbuilder.append(answer + " ");
 					stringbuilder.append(" + ");
 				}
+				else if( answerState == true){
+					stringbuilder.delete(0,stringbuilder.length());
+					stringbuilder.append(answer + " + ");
+					answer = 0;
+				}
 				else{
 					state = 1;
 					stringbuilder.append(" + ");
@@ -251,6 +269,11 @@ public class Calculator {
 					stringbuilder.delete(0, stringbuilder.length());
 					stringbuilder.append(" - ");
 				}
+				else if( answerState == true){
+					stringbuilder.delete(0,stringbuilder.length());
+					stringbuilder.append(answer + " - ");
+					answer = 0;
+				}
 				else{
 					state = 1;
 					stringbuilder.append(" - ");
@@ -266,6 +289,11 @@ public class Calculator {
 					stringbuilder.delete(0, stringbuilder.length());
 					stringbuilder.append(" x ");
 				}
+				else if( answerState == true){
+					stringbuilder.delete(0,stringbuilder.length());
+					stringbuilder.append(answer + " x ");
+					answer = 0;
+				}
 				else{
 					state = 1;
 					stringbuilder.append(" x ");
@@ -279,6 +307,7 @@ public class Calculator {
 				answer = ans(stringbuilder.toString());
 				display.setText(answer + "");
 				stringbuilder.delete(0, stringbuilder.length());
+				answerState = true;
 				
 			}
 		});    
