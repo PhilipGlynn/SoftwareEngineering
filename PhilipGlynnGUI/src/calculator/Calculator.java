@@ -1,5 +1,8 @@
 package calculator;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 
 import net.miginfocom.swing.MigLayout;
@@ -25,7 +28,9 @@ public class Calculator {
 	  private JButton plus;
 	  private JButton minus;
 	  private JButton equals;
-	
+	  private JButton clear;
+	  private static int state = 0;
+	  private static Integer sum = 0;
 
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
@@ -39,8 +44,9 @@ public class Calculator {
 	
 	
 	private void createGUI() {
+		
 		 JFrame frame = new JFrame("Calculator");
-		 frame.setPreferredSize(new Dimension(500,550));
+		 frame.setPreferredSize(new Dimension(500,600));
 		 frame.setResizable(false);
 		 frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		 topPanel = new JPanel(new FlowLayout());
@@ -76,7 +82,7 @@ public class Calculator {
 		 zero = new JButton ("0");
 		 zero.setFont(font2);
 		 
-		 multiply = new JButton ("x");
+		 multiply = new JButton ("*");
 		 multiply.setFont(font2);
 		 divide = new JButton ("÷");
 		 divide.setFont(font2);
@@ -86,6 +92,8 @@ public class Calculator {
 		 minus.setFont(font2);
 		 equals = new JButton ("=");
 		 equals.setFont(font2);
+		 clear = new JButton ("clear");
+		 clear.setFont(font2);
 		 
 		 bottomPanel = new JPanel(new MigLayout("fill, wrap 3", "[33%][33%][33%]","[20lp, fill]0"));
 		 bottomPanel.setBackground(Color.GRAY);
@@ -104,6 +112,7 @@ public class Calculator {
 		 minus.setPreferredSize(new Dimension(1000, 1000));
 		 equals.setPreferredSize(new Dimension(1000, 1000));
 		 multiply.setPreferredSize(new Dimension(1000, 1000));
+		 clear.setPreferredSize(new Dimension(2000, 1000));
 		 
 		 bottomPanel.add(one);
 		 bottomPanel.add(two);
@@ -120,6 +129,7 @@ public class Calculator {
 		 bottomPanel.add(plus);
 		 bottomPanel.add(minus);
 		 bottomPanel.add(equals);
+		 bottomPanel.add(clear);
 		 
 		 
 		 frame.add(topPanel, BorderLayout.NORTH);
@@ -127,8 +137,185 @@ public class Calculator {
 		 frame.pack();
 		 
 		//Display the window.
-	        frame.pack();
-	        frame.setVisible(true);
+        frame.pack();
+        frame.setVisible(true);
+	        
+        nine.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 9;
+				}
+				if(state == 1){
+					sum = sum + 9;
+				}
+				if(state == 2){
+					sum = sum - 9;
+				}
+				if(state == 3){
+					sum = sum * 9;
+				}
+				display.setText("9");
+			}
+		});
+		
+		eight.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 8;
+				}
+				if(state == 1){
+					sum = sum + 8;
+				}
+				if(state == 2){
+					sum = sum - 8;
+				}	
+				if(state == 3){
+					sum = sum * 8;
+				}	
+				display.setText("8");
+			}
+		});
+		seven.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 7;
+				}
+				if(state == 1){
+					sum = sum + 7;
+				}
+				if(state == 2){
+					sum = sum - 7;
+				}	
+				if(state == 3){
+					sum = sum * 7;
+				}	
+				display.setText("7");
+			}
+		});
+		six.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 6;
+				}
+				if(state == 1){
+					sum = sum + 6;
+				}
+				if(state == 2){
+					sum = sum - 6;
+				}	
+				if(state == 3){
+					sum = sum * 7;
+				}	
+				display.setText("6");
+			}
+		});
+		five.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 5;
+				}
+				if(state == 1){
+					sum = sum + 5;
+				}
+				if(state == 2){
+					sum = sum - 5;
+				}
+				if(state == 3){
+					sum = sum * 5;
+				}
+				display.setText("5");
+			}
+		});
+		four.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 4;
+				}
+				if(state == 1){
+					sum = sum + 4;
+				}
+				if(state == 2){
+					sum = sum - 4;
+				}	
+				if(state == 3){
+					sum = sum * 4;
+				}	
+				display.setText("4");
+			}
+		});
+		three.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 3;
+				}
+				if(state == 1){
+					sum = sum + 3;
+				}
+				if(state == 2){
+					sum = sum - 3;
+				}
+				if(state == 3){
+					sum = sum * 3;
+				}
+				display.setText("3");
+			}
+		});
+		two.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 2;
+				}
+				if(state == 1){
+					sum = sum + 2;
+				}
+				if(state == 2){
+					sum = sum - 2;
+				}	
+				if(state == 3){
+					sum = sum * 2;
+				}
+				display.setText("2");
+			}
+		});
+		one.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				if(state == 0){
+					sum = 1;
+				}
+				if(state == 1){
+					sum = sum + 1;
+				}
+				if(state == 2){
+					sum = sum - 1;
+				}	
+				if(state == 3){
+					sum = sum * 1;
+				}	
+				display.setText("1");
+			}
+		});
+		plus.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				state = 1;	
+			}
+		});
+		minus.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				state = 2;	
+			}
+		});
+		multiply.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				state = 3;	
+			}
+		});
+		equals.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				state = 0;	
+				display.setText(sum.toString());
+			}
+		});    
+	        
 	}
 	
 }
