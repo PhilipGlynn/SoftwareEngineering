@@ -31,7 +31,8 @@ public class Calculator {
 	  private JButton clear;
 	  private static int state = 0;
 	  private static Integer sum = 0;
-
+	  int answer = 0;
+	  StringBuilder stringbuilder = new StringBuilder();
 	public static void main(String[] args) {
 		Calculator calc = new Calculator();
 		
@@ -95,7 +96,7 @@ public class Calculator {
 		 clear = new JButton ("clear");
 		 clear.setFont(font2);
 		 
-		 bottomPanel = new JPanel(new MigLayout("fill, wrap 3", "[33%][33%][33%]","[20lp, fill]0"));
+		 bottomPanel = new JPanel(new MigLayout("fill, wrap 4", "[25%][25%][25%][25%]","[20lp, fill]0"));
 		 bottomPanel.setBackground(Color.GRAY);
 		 one.setPreferredSize(new Dimension(1000,1000));
 		 two.setPreferredSize(new Dimension(1000, 1000));
@@ -112,24 +113,24 @@ public class Calculator {
 		 minus.setPreferredSize(new Dimension(1000, 1000));
 		 equals.setPreferredSize(new Dimension(1000, 1000));
 		 multiply.setPreferredSize(new Dimension(1000, 1000));
-		 clear.setPreferredSize(new Dimension(2000, 1000));
+		 clear.setPreferredSize(new Dimension(1000, 1000));
 		 
-		 bottomPanel.add(one);
-		 bottomPanel.add(two);
-		 bottomPanel.add(three);
-		 bottomPanel.add(four);
-		 bottomPanel.add(five);
-		 bottomPanel.add(six);
 		 bottomPanel.add(seven);
 		 bottomPanel.add(eight);
 		 bottomPanel.add(nine);
+		 bottomPanel.add(clear);
+		 bottomPanel.add(four);
+		 bottomPanel.add(five);
+		 bottomPanel.add(six);
 		 bottomPanel.add(multiply);
-		 bottomPanel.add(zero);
+		 bottomPanel.add(one);
+		 bottomPanel.add(two);
+		 bottomPanel.add(three);
 		 bottomPanel.add(divide);
 		 bottomPanel.add(plus);
+		 bottomPanel.add(zero);
 		 bottomPanel.add(minus);
 		 bottomPanel.add(equals);
-		 bottomPanel.add(clear);
 		 
 		 
 		 frame.add(topPanel, BorderLayout.NORTH);
@@ -139,183 +140,188 @@ public class Calculator {
 		//Display the window.
         frame.pack();
         frame.setVisible(true);
-	        
+        clear.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				stringbuilder.delete(0, stringbuilder.length());
+				display.setText(stringbuilder.toString());
+				display.setText("");
+			}
+		});    
         nine.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 9;
-				}
-				if(state == 1){
-					sum = sum + 9;
-				}
-				if(state == 2){
-					sum = sum - 9;
-				}
-				if(state == 3){
-					sum = sum * 9;
-				}
-				display.setText("9");
+				
+				stringbuilder.append("9");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		
 		eight.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 8;
-				}
-				if(state == 1){
-					sum = sum + 8;
-				}
-				if(state == 2){
-					sum = sum - 8;
-				}	
-				if(state == 3){
-					sum = sum * 8;
-				}	
-				display.setText("8");
+				
+				stringbuilder.append("9");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		seven.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 7;
-				}
-				if(state == 1){
-					sum = sum + 7;
-				}
-				if(state == 2){
-					sum = sum - 7;
-				}	
-				if(state == 3){
-					sum = sum * 7;
-				}	
-				display.setText("7");
+				
+				stringbuilder.append("7");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		six.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 6;
-				}
-				if(state == 1){
-					sum = sum + 6;
-				}
-				if(state == 2){
-					sum = sum - 6;
-				}	
-				if(state == 3){
-					sum = sum * 7;
-				}	
-				display.setText("6");
+				
+				stringbuilder.append("6");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		five.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 5;
-				}
-				if(state == 1){
-					sum = sum + 5;
-				}
-				if(state == 2){
-					sum = sum - 5;
-				}
-				if(state == 3){
-					sum = sum * 5;
-				}
-				display.setText("5");
+				
+				stringbuilder.append("5");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		four.addActionListener(new ActionListener(){		
-			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 4;
-				}
-				if(state == 1){
-					sum = sum + 4;
-				}
-				if(state == 2){
-					sum = sum - 4;
-				}	
-				if(state == 3){
-					sum = sum * 4;
-				}	
-				display.setText("4");
+			public void actionPerformed(ActionEvent e) {	
+				stringbuilder.append("4");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		three.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 3;
-				}
-				if(state == 1){
-					sum = sum + 3;
-				}
-				if(state == 2){
-					sum = sum - 3;
-				}
-				if(state == 3){
-					sum = sum * 3;
-				}
-				display.setText("3");
+				
+				stringbuilder.append("3");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		two.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 2;
-				}
-				if(state == 1){
-					sum = sum + 2;
-				}
-				if(state == 2){
-					sum = sum - 2;
-				}	
-				if(state == 3){
-					sum = sum * 2;
-				}
-				display.setText("2");
+				
+				stringbuilder.append("2");
+				display.setText(stringbuilder.toString());
 			}
 		});
 		one.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				if(state == 0){
-					sum = 1;
-				}
+				
+				stringbuilder.append("1");
+				display.setText(stringbuilder.toString());
+			}
+		});
+		divide.addActionListener(new ActionListener(){		
+			public void actionPerformed(ActionEvent e) {
+				
 				if(state == 1){
-					sum = sum + 1;
+					answer = ans(stringbuilder.toString());
+					stringbuilder.delete(0, stringbuilder.length());
+					stringbuilder.append(answer + " ");
+					stringbuilder.append("÷");
 				}
-				if(state == 2){
-					sum = sum - 1;
-				}	
-				if(state == 3){
-					sum = sum * 1;
-				}	
-				display.setText("1");
+				else{
+					state = 1;
+					stringbuilder.append("÷");
+				}
+				
+				display.setText(stringbuilder.toString());
 			}
 		});
 		plus.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				state = 1;	
+				if(state == 1){
+					answer = ans(stringbuilder.toString());
+					stringbuilder.delete(0, stringbuilder.length());
+					stringbuilder.append(answer + " ");
+					stringbuilder.append(" + ");
+				}
+				else{
+					state = 1;
+					stringbuilder.append(" + ");
+				}
+				
+				display.setText(stringbuilder.toString());
 			}
 		});
 		minus.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				state = 2;	
+				if(state == 1){
+					answer = ans(stringbuilder.toString());
+					answer = ans(stringbuilder.toString());
+					stringbuilder.delete(0, stringbuilder.length());
+					stringbuilder.append(" - ");
+				}
+				else{
+					state = 1;
+					stringbuilder.append(" - ");
+				}
+				display.setText(stringbuilder.toString());
 			}
 		});
 		multiply.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				state = 3;	
+				if(state == 1){
+					answer = ans(stringbuilder.toString());
+					answer = ans(stringbuilder.toString());
+					stringbuilder.delete(0, stringbuilder.length());
+					stringbuilder.append(" x ");
+				}
+				else{
+					state = 1;
+					stringbuilder.append(" x ");
+				}
+				
+				display.setText(stringbuilder.toString());
 			}
 		});
 		equals.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent e) {
-				state = 0;	
-				display.setText(sum.toString());
+				answer = ans(stringbuilder.toString());
+				display.setText(answer + "");
+				stringbuilder.delete(0, stringbuilder.length());
+				
 			}
 		});    
-	        
+	    
 	}
+	private int ans(String equation){
+		int ans = 0;
+		if(equation.contains("+"))
+		{
+		    String parts[] = equation.split("\\+");
+		    String partOne =  parts[0].toString();
+		    String partTwo =  parts[1].toString();
+		    //System.out.println(Integer.parseInt(partOne.replaceAll("[\\D]", "")));	
+		    ans = (Integer.parseInt(partOne.replaceAll("[\\D]", "")) + (Integer.parseInt(partTwo.replaceAll("[\\D]", ""))));
+		    
+		}
+		else if(equation.contains("-"))
+		{
+		    String parts[] = equation.split("-");
+		    String partOne =  parts[0].toString();
+		    String partTwo =  parts[1].toString();
+		    ans = (Integer.parseInt(partOne.replaceAll("[\\D]", "")) - (Integer.parseInt(partTwo.replaceAll("[\\D]", ""))));
+		    
+		}
+		else if(equation.contains("x"))
+		{
+		    String parts[] = equation.split("x");
+		    String partOne =  parts[0].toString();
+		    String partTwo =  parts[1].toString();
+		    ans = (Integer.parseInt(partOne.replaceAll("[\\D]", "")) * (Integer.parseInt(partTwo.replaceAll("[\\D]", ""))));
+		    
+		}
+		else if(equation.contains("÷"))
+		{
+		    String parts[] = equation.split("÷");
+		    String partOne =  parts[0].toString();
+		    String partTwo =  parts[1].toString();
+		    ans = (Integer.parseInt(partOne.replaceAll("[\\D]", "")) / (Integer.parseInt(partTwo.replaceAll("[\\D]", ""))));
+		    
+		}
+    	state = 0;
+    	return ans;	
+    	
+    }
 	
 }
